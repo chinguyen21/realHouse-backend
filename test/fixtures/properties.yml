@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prop_type: MyString
+  sqrt: 1
+  year_built: 1
+  full_address: MyString
+  county: MyString
+  city: MyString
+  state: MyString
+  latitude: 1
+  longtitude: 1
+  neighborhoods: MyString
+  allow_pets: false
+  prop_status: MyString
+  owner_contact: MyString
+
+two:
+  prop_type: MyString
+  sqrt: 1
+  year_built: 1
+  full_address: MyString
+  county: MyString
+  city: MyString
+  state: MyString
+  latitude: 1
+  longtitude: 1
+  neighborhoods: MyString
+  allow_pets: false
+  prop_status: MyString
+  owner_contact: MyString
