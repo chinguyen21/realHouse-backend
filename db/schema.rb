@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_195148) do
+ActiveRecord::Schema.define(version: 2021_03_03_163741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,14 @@ ActiveRecord::Schema.define(version: 2021_02_24_195148) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string "src"
+    t.integer "property_id"
+  end
+
   create_table "properties", force: :cascade do |t|
     t.string "prop_type"
-    t.integer "sqrt"
+    t.integer "sqft"
     t.integer "year_built"
     t.string "full_address"
     t.string "county"
@@ -40,6 +45,13 @@ ActiveRecord::Schema.define(version: 2021_02_24_195148) do
     t.string "owner_contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bedrooms"
+    t.string "bathrooms"
+    t.integer "user_id"
+    t.string "state_code"
+    t.string "price"
+    t.string "list_date"
+    t.string "last_update"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -60,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_02_24_195148) do
     t.string "email"
     t.string "password_digest"
     t.string "name"
-    t.string "phone_no"
+    t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
