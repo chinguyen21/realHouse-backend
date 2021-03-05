@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :properties
   has_many :contracts
+  has_many :favorite_properties
 
   def renting_properties
     self.contracts.map {|contract| contract.property }
@@ -8,6 +9,10 @@ class User < ApplicationRecord
 
   def renters 
     self.properties.map {|property| property.contract.user}
+  end
+
+  def saved_properties
+    self.favorite_properties.map {|f_property| f_property.property}
   end
   
   has_secure_password

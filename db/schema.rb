@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_163741) do
+ActiveRecord::Schema.define(version: 2021_03_05_032513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2021_03_03_163741) do
     t.string "update_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorite_properties", force: :cascade do |t|
+    t.string "property_id"
+    t.string "user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -37,8 +42,8 @@ ActiveRecord::Schema.define(version: 2021_03_03_163741) do
     t.string "county"
     t.string "city"
     t.string "state"
-    t.integer "latitude"
-    t.integer "longtitude"
+    t.float "latitude"
+    t.float "longitude"
     t.string "neighborhoods"
     t.boolean "allow_pets"
     t.string "prop_status"

@@ -5,6 +5,7 @@ class Property < ApplicationRecord
 
   accepts_nested_attributes_for :photos, reject_if: ->(attributes){ attributes['src'].blank? }, allow_destroy: true
   
+
   def renter
     self.contract.user
   end

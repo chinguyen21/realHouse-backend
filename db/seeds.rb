@@ -19,11 +19,14 @@ def destructure_photos(photos)
   hash 
 end
 
+Property.destroy_all
+FavoriteProperty.destroy_all
+Contract.destroy_all
 
-user1 = User.create(email: "admin@gmail.com", password: "admin123", name: "Admin", phone_number: "8579999999")
+# user1 = User.create(email: "admin@gmail.com", password: "admin123", name: "Admin", phone_number: "8579999999")
 
 
-url = URI("https://realtor.p.rapidapi.com/properties/v2/list-for-rent?city=New%20York%20City&state_code=NY&limit=200&offset=0&prop_type=apartment&sort=photos&price_min=2500")
+url = URI("https://realtor.p.rapidapi.com/properties/v2/list-for-rent?city=New%20York%20City&state_code=NY&limit=100&offset=0&prop_type=apartment&sort=photos&price_min=2500")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -36,12 +39,9 @@ request["x-rapidapi-host"] = 'realtor.p.rapidapi.com'
 response = http.request(request)
 all_properties = JSON.parse(response.read_body)["properties"]
 
-# puts all_properties[0]["photos"]
-# puts all_properties[0][:photos]
-# puts all_properties[0]["photos"].class
 
 all_properties.each do |property|
-  photos = property["photos"].first(20)
+  photos = property["photos"].first(6)
   if property["community"]
     Property.create(
       prop_type: property["prop_type"],
@@ -55,7 +55,7 @@ all_properties.each do |property|
       state: property["address"]["state"],
       state_code: property["address"]["state_code"],
       latitude: property["address"]["lat"],
-      longtitude: property["address"]["lon"],
+      longitude: property["address"]["lon"],
       neighborhoods: property["address"]["neighborhoods"] ? property["address"]["neighborhoods"].map{|n| n["name"]} : "",
       allow_pets: property["client_display_flags"]["allows_dogs"],
       prop_status: "active",
@@ -79,7 +79,7 @@ all_properties.each do |property|
       state: property["address"]["state"],
       state_code: property["address"]["state_code"],
       latitude: property["address"]["lat"],
-      longtitude: property["address"]["lon"],
+      longitude: property["address"]["lon"],
       neighborhoods: property["address"]["neighborhoods"] ? property["address"]["neighborhoods"].map{|n| n["name"]} : "",
       allow_pets: property["client_display_flags"]["allows_dogs"],
       prop_status: "active",
@@ -95,7 +95,7 @@ end
 
 
 
-url1 = URI("https://realtor.p.rapidapi.com/properties/v2/list-for-rent?city=New%20York%20City&state_code=NY&limit=200&offset=0&prop_type=apartment&sort=photos&price_min=2500")
+url1 = URI("https://realtor.p.rapidapi.com/properties/v2/list-for-rent?city=Boston&state_code=MA&limit=100&offset=0&prop_type=apartment&sort=photos&price_min=2500")
 
 http = Net::HTTP.new(url1.host, url1.port)
 http.use_ssl = true
@@ -108,12 +108,9 @@ request["x-rapidapi-host"] = 'realtor.p.rapidapi.com'
 response = http.request(request)
 all_properties = JSON.parse(response.read_body)["properties"]
 
-# puts all_properties[0]["photos"]
-# puts all_properties[0][:photos]
-# puts all_properties[0]["photos"].class
 
 all_properties.each do |property|
-  photos = property["photos"].first(20)
+  photos = property["photos"].first(6)
   if property["community"]
     Property.create(
       prop_type: property["prop_type"],
@@ -127,7 +124,7 @@ all_properties.each do |property|
       state: property["address"]["state"],
       state_code: property["address"]["state_code"],
       latitude: property["address"]["lat"],
-      longtitude: property["address"]["lon"],
+      longitude: property["address"]["lon"],
       neighborhoods: property["address"]["neighborhoods"] ? property["address"]["neighborhoods"].map{|n| n["name"]} : "",
       allow_pets: property["client_display_flags"]["allows_dogs"],
       prop_status: "active",
@@ -151,7 +148,7 @@ all_properties.each do |property|
       state: property["address"]["state"],
       state_code: property["address"]["state_code"],
       latitude: property["address"]["lat"],
-      longtitude: property["address"]["lon"],
+      longitude: property["address"]["lon"],
       neighborhoods: property["address"]["neighborhoods"] ? property["address"]["neighborhoods"].map{|n| n["name"]} : "",
       allow_pets: property["client_display_flags"]["allows_dogs"],
       prop_status: "active",
