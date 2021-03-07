@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_032513) do
+ActiveRecord::Schema.define(version: 2021_03_07_012319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,20 @@ ActiveRecord::Schema.define(version: 2021_03_05_032513) do
     t.string "price"
     t.string "list_date"
     t.string "last_update"
+    t.string "move_date"
+    t.integer "lease_length"
+    t.boolean "refrigerator"
+    t.boolean "balcony"
+    t.boolean "heating"
+    t.boolean "washer"
+    t.boolean "elevator"
+    t.boolean "parking"
+    t.boolean "fitness"
+    t.boolean "dishwasher"
+    t.boolean "wheelchair"
+    t.boolean "camera"
+    t.boolean "digital_lock"
+    t.string "zipcode"
   end
 
   create_table "schools", force: :cascade do |t|
