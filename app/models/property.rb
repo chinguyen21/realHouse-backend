@@ -2,6 +2,7 @@ class Property < ApplicationRecord
   belongs_to :user
   has_one :contract
   has_many :photos
+  has_many :favorite_properties
 
   accepts_nested_attributes_for :photos, reject_if: ->(attributes){ attributes['src'].blank? }, allow_destroy: true
   
