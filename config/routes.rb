@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   post "/fproperties", to: "favorite_properties#create"
   delete "/fproperties/:id", to: "favorite_properties#destroy"
+
+  get '/schools', to: "schools#index"
 end
