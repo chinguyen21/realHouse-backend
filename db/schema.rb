@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_015636) do
+ActiveRecord::Schema.define(version: 2021_03_11_143301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2021_03_10_015636) do
   create_table "favorite_properties", force: :cascade do |t|
     t.integer "property_id"
     t.integer "user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "message"
+    t.string "sender_name"
+    t.string "sender_email"
+    t.string "sender_phone"
   end
 
   create_table "photos", force: :cascade do |t|

@@ -5,4 +5,6 @@ class PropertiesController < ApplicationController
     render json: properties
   end
 
+
+  
 end
