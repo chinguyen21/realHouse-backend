@@ -15,7 +15,8 @@ class FavoritePropertiesController < ApplicationController
   end
 
   def destroy
-      favorite_property = FavoriteProperty.all.find {|fp| fp.property.id == params[:id].to_i}
+    # byebug
+      favorite_property = FavoriteProperty.all.find {|fp| fp.property.id == params[:id].to_i && fp.user.id == current_user.id}
       favorite_property.destroy
       render json: {message: "successful unsaved"}
   end

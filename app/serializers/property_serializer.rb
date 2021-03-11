@@ -5,6 +5,7 @@ class PropertySerializer < ActiveModel::Serializer
   :bedrooms, :bathrooms, :state_code, :price, :list_date, :last_update,
   :move_date, :lease_length, :refrigerator, :balcony, :heating, :washer, :elevator,
   :parking, :fitness, :dishwasher, :wheelchair, :camera, :digital_lock, :zipcode,
-  :photos, :favorite_properties
+  :photos
+  # :favorite_properties
 
 end
