@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_03_11_143301) do
     t.string "sender_name"
     t.string "sender_email"
     t.string "sender_phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "photos", force: :cascade do |t|

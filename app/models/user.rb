@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :properties
   has_many :contracts
   has_many :favorite_properties
+  has_many :messages
 
   def renting_properties
     self.contracts.map {|contract| contract.property }

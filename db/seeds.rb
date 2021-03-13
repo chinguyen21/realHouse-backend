@@ -19,10 +19,11 @@ def destructure_photos(photos)
   hash 
 end
 
-# School.destroy_all
-# Property.destroy_all
-# FavoriteProperty.destroy_all
-# Contract.destroy_all
+School.destroy_all
+Property.destroy_all
+FavoriteProperty.destroy_all
+Contract.destroy_all
+User.destroy_all
 
 user1 = User.create(email: "admin@gmail.com", password: "admin123", name: "Admin", phone_number: "8579999999")
 
