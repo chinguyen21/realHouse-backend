@@ -1,7 +1,7 @@
 
 # realHome App (React / Rails API Application)
 
-* Here is the Frontend repo of this app. Link to [Backend Repo](https://github.com/chinguyen21/realHouse-frontend)
+* Here is the Frontend repo of this app. Link to [Frontend Repo](https://github.com/chinguyen21/realHouse-frontend)
 
 An app that helps people find the best place to live with real updated apartments. It was made with React Hook for frontend and Rails API for backend.
 
